@@ -3,16 +3,31 @@
 const fs = require('fs');
 const PrivateKeyProvider = require('truffle-privatekey-provider');
 
-const [url, privatekey] = fs
-  .readFileSync('temp', { encoding: 'utf-8' })
-  .split(' ');
+const TEMP_FILE = 'temp';
+
+const getNetwork = () => {
+  if (fs.existsSync(TEMP_FILE)) {
+    const [url, privatekey] = fs
+      .readFileSync('temp', { encoding: 'utf-8' })
+      .split(' ');
+
+    return {
+      provider: new PrivateKeyProvider(privatekey, url),
+      network_id: '*',
+    }
+  }
+
+  return {
+    host: "127.0.0.1",
+    port: 8545,
+    network_id: "*"
+  }
+}
+
 
 module.exports = {
   networks: {
-    fuelStop: {
-      provider: new PrivateKeyProvider(privatekey, url),
-      network_id: '*',
-    },
+    fuelStop: getNetwork(),
   },
   compilers: {
     solc: {

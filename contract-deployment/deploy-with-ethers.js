@@ -1,5 +1,7 @@
 'use strict';
 
+// url is your FuelStop project URL, and privateKey is for the address we just
+// created and you just added into your project
 const [, , url, privateKey] = process.argv;
 
 const ethers = require('ethers');
