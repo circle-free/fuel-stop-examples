@@ -1,5 +1,15 @@
 # FuelStop
 
+Sign up at [FuelStop.io](https://fuelstop.io/) if you haven't already!
+
+## Workflow
+
+The following diagram details the steps involved when funding your signed transaction.
+
+<p align="center">
+  <img src="./diagrams/workflow.svg">
+</p>
+
 ## Getting Started
 
 ### Projects
@@ -49,38 +59,39 @@ The Account History table displays your account's balance-changes.
 
 ![Account History](./diagrams/account-history.svg)
 
-### Using FuelStop's RPC URL
+## Using FuelStop's RPC URL
 
 FuelStop supports all [standard Ethereum JSON-RPC APIs](https://eth.wiki/json-rpc/API), which means it's able to work seemlessly with popular libraries such as [web3.js](https://github.com/ethereum/web3.js/) and [ethers.js](https://github.com/ethers-io/ethers.js/), and tools such as [MetaMask](https://metamask.io/) and [Remix Ethereum IDE](https://remix.ethereum.org/).
 
-#### web3.js
+### web3.js
 
 ```javascript
 const Web3 = require('web3');
 const web3 = new Web3(url); // url is your FuelStop project RPC URL
-```	
+```
 
-#### ethers.js	
+### ethers.js
 
-```javascript	
-const ethers = require('ethers');	
-const provider = new ethers.providers.JsonRpcProvider(url); // url is your FuelStop project RPC URL	
-```	
+```javascript
+const ethers = require('ethers');
+const provider = new ethers.providers.JsonRpcProvider(url); // url is your FuelStop project RPC URL
+```
 
-#### MetaMask	
+### MetaMask
 
-To connect Fuelstop to Metamask	
-1. Go to `Settings` -> `Networks` -> `Add Network`	
-2. Fill in the "Network Name" of your choice	
-3. Add your FuelStop RPC URL	
+To connect Fuelstop to Metamask
 
-![MetaMask](./diagrams/metamask.svg)	
+1. Go to `Settings` -> `Networks` -> `Add Network`
+2. Fill in the "Network Name" of your choice
+3. Add your FuelStop RPC URL
 
-If you register one of your MetaMask addresses with a Fuelstop project, you may notice that that the ETH balance shown in MetaMask is higher than the actual balance on the Ethereum network. Instead, the amount is the `actual ETH balance` + `the equivalent ETH amount of your FuelStop project balance`. This allows MetaMask to work seamlessly with FuelStop even when your MetaMask address has no balance.	
+![MetaMask](./diagrams/metamask.svg)
 
-![Metamask Balance](./diagrams/metamask-balance.svg)	
+If you register one of your MetaMask addresses with a Fuelstop project, you may notice that that the ETH balance shown in MetaMask is higher than the actual balance on the Ethereum network. Instead, the amount is the `actual ETH balance` + `the equivalent ETH amount of your FuelStop project balance`. This allows MetaMask to work seamlessly with FuelStop even when your MetaMask address has no balance.
 
-#### Remix Ethereum IDE
+![Metamask Balance](./diagrams/metamask-balance.svg)
+
+### Remix Ethereum IDE
 
 To connect FuelStop to the Remix Ethereum IDE, navigate the `DEPLOY & RUN TRANSACTIONS`. In the `ENVIRONMENT` dropdown, you can either select "Web3 Provider" and enter your Fuelstop RPC-URL **OR** you can connect FuelStop to MetaMask (following the section above) then select "Injected Web3" in the Remix IDE.
 
